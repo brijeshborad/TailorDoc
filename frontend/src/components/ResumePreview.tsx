@@ -13,23 +13,23 @@ export function ResumePreview({ htmlContent, setHtmlContent }: ResumePreviewProp
 
     const handleDownload = async () => {
         if (!contentRef.current) return;
-        
+
         setIsDownloading(true);
         try {
             const opt = {
                 margin: 0,
                 filename: 'optimized_resume.pdf',
                 image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { 
-                    scale: 2, 
-                    useCORS: true, 
+                html2canvas: {
+                    scale: 2,
+                    useCORS: true,
                     letterRendering: true,
                     windowWidth: 794,
                     windowHeight: 1123
                 },
                 jsPDF: { unit: 'px', format: [794, 1123], orientation: 'portrait' }
             };
-            
+
             await html2pdf().set(opt).from(contentRef.current).save();
         } catch (error) {
             console.error("Download failed:", error);
@@ -68,8 +68,8 @@ export function ResumePreview({ htmlContent, setHtmlContent }: ResumePreviewProp
                     onBlur={(e) => setHtmlContent(e.currentTarget.innerHTML)}
                     dangerouslySetInnerHTML={{ __html: htmlContent }}
                     className="outline-none"
-                    style={{ 
-                        width: '794px', 
+                    style={{
+                        width: '794px',
                         minHeight: '1123px',
                         margin: '0 auto',
                         padding: '0',

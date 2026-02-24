@@ -2,7 +2,7 @@ import { UploadZone } from "../components/UploadZone";
 import { JobDescInput } from "../components/JobDescInput";
 import { FileText, Briefcase, Zap, AlertCircle, EyeOff, Eye } from "lucide-react";
 
-interface HomeProps {
+interface OptimizeProps {
     resumeFiles: File[];
     setResumeFiles: (files: File[]) => void;
     jobDesc: string;
@@ -14,7 +14,7 @@ interface HomeProps {
     error: any;
 }
 
-export function Home({
+export function Optimize({
     resumeFiles,
     setResumeFiles,
     jobDesc,
@@ -24,7 +24,7 @@ export function Home({
     handleOptimize,
     isPending,
     error,
-}: HomeProps) {
+}: OptimizeProps) {
     return (
         <section className="space-y-8 animate-fade-in-up max-w-4xl mx-auto w-full">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
